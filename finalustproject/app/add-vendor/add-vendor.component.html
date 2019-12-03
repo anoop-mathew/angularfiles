@@ -1,0 +1,95 @@
+
+<div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>User Dashboard</h1></a>
+        <a class="text-white" href="Home">Home</a>
+        <a class="text-white" href="AddVendor">New Vendor</a>
+       <!--<a class="text-white" href="ViewVendor">View All Vendor</a>-->
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 9%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+<h3 align="center">Vendor Registration </h3>
+<br>
+<div class="container">
+ 
+    <section id="cover">
+        <input class="form-control text_length" [(ngModel)]="user.vendorId" placeholder="vendorId" type="hidden">
+    <div class="form-group row">
+        <label for="example-text-input"  class="col-2 col-form-label" >VENDOR NAME:</label>
+        <div class="col-10">
+            <input class="form-control text_length" [(ngModel)]="user.vendorName" placeholder="Enter Vendor Name" type="text" pattern="[a-zA-Z]{2,}"required/>
+        </div>
+    </div>
+    <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">VENDOR ADDRESS:</label>
+            <div class="col-10">
+                <textarea class="form-control text_length" [(ngModel)]="user.address" placeholder="Enter Vendor Address" required></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+                <label for="example-datetime-local-input"  class="col-2 col-form-label">LOCATION:</label>
+                
+                <div class="col-10">
+                    <select class="form-control text_length" [(ngModel)]="user.location" required>
+                        <option disabled>Select Location</option>
+                        <option>Trivandrum</option>
+                        <option>Bangalore</option>
+                        <option>Chennai</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label for="example-text-input"  class="col-2 col-form-label" >SERVICES:</label>
+                    <div class="col-10">
+                        <input class="form-control text_length" [(ngModel)]="user.service" placeholder="Enter the Services" type="text" pattern="[a-zA-Z]{2,}" required/>
+                    </div>
+            </div>
+            <div class="form-group row">
+                        <label for="example-tel-input" class="col-2 col-form-label">PINCODE:</label>
+                        <div class="col-10">
+                    <input class="form-control text_length" [(ngModel)]="user.pincode" placeholder="Enter the Pincode" type="text" required/>
+                </div>
+            </div>
+            <br>
+            <h3 style="padding-left:15%;">Contact Person Registration</h3>
+            <br>
+            <div class="form-group row">
+                    <label for="example-text-input"  class="col-2 col-form-label" >CONTACT NAME:</label>
+                    <div class="col-10">
+                        <input class="form-control text_length" [(ngModel)]="user.contactName" placeholder="Enter Contact Name" type="text" pattern="[a-zA-Z]{2,}" required/>
+                 </div>
+            </div>
+            <div class="form-group row">
+                    <label for="example-text-input"  class="col-2 col-form-label" >DEPARTMENT:</label>
+                    <div class="col-10">
+                        <input class="form-control text_length" [(ngModel)]="user.department" placeholder="Enter the Department" type="text" pattern="[a-zA-Z]{2,}" required/>
+                 </div>
+            </div>
+            <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label">EMAIL:</label>
+                    <div class="col-10">
+                        <input class="form-control  text_length" [(ngModel)]="user.email"  placeholder="Enter Email Address" type="email"  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required/>
+                    </div>
+            </div>
+    <div class="form-group row">
+        <label for="example-tel-input" class="col-2 col-form-label">PHONE NUMBER:</label>
+        <div class="col-10">
+            <input class="form-control text_length" [(ngModel)]="user.phone" placeholder="Enter Contact Number" type="tel"  pattern="[0-9]{13}" minlength="10" maxlength="12" required/>
+        </div>
+    </div>
+   
+   
+    <br>
+   
+</section>
+
+    <nav>
+   <!-- <button type="button" class="btn btn-warning" style="float:left; margin-left: 8%">BACK</button>-->
+    <button  (click)="saveVendor()" type="button" class="btn btn-success" style="float:right;  margin-right: 29%" >SAVE</button>
+    </nav>
+    </div>
+
+
+

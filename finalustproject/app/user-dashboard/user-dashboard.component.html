@@ -1,0 +1,53 @@
+
+<div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>User Dashboard</h1></a>
+        <a class="text-white" href="Home">Home</a>
+        <a class="text-white" href="AddVendor">New Vendor</a>
+       <!--<a class="text-white" href="ViewVendor">View All Vendor</a>-->
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 9%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+<h3 align="center">Vendor List </h3>
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<button (click)="AddVendor()" type="button" style="float:right" class="btn btn-outline-info">ADD Vendor</button>&nbsp;
+ <i class="fas fa-search" aria-hidden="true"></i>
+ <input [(ngModel)]="search" (ngModelChange)="searchVendor(search)" name="sName" type="search" class="form-control mr-sm-2" type="search" placeholder="Search: Vendor Name / Location / Service" aria-label="Search">
+
+ <button (click)="searchVendor(searchstring)"class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</nav>
+  <br> 
+     <div>
+           <table class="table" border="1">
+                 <thead class="text-white">
+                    <tr>
+                            <th>Vendor Id</th>
+                            <th>Vendor Name</th>
+                            <th>Location</th>
+                            <th>Service</th>
+                            <th>Contact Name</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr *ngFor="let user of users | paginate:{itemsPerPage:10,currentPage:p}">
+                            <td>{{user.vendorId}}</td>
+                            <td>{{user.vendorName}}</td>
+                            <td>{{user.location}}</td>
+                            <td>{{user.service}}</td>
+                            <td>{{user.contactName}}</td>
+                            <td>{{user.phone}}</td>
+                            <td><Button style="background-color: transparent;border: none;" (click)="editVendor(user.vendorId)"><img src="assets/edit.png"/></Button>
+                                <Button style="background-color: transparent;border: none;" (click)="disableVendor(user.vendorId)"><img src="assets/delete.png"/></Button></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                <pagination-controls (pageChange) = "p = $event"></pagination-controls>
+                </div>
+
+
+
+
