@@ -1,0 +1,68 @@
+<div id="mySidenav" class="sidenav mt-5">
+                <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+                <a class="text-white"><h1>Admin</h1></a>
+                <a class="text-white"href="Admin" >Home</a>
+                <div class="btn-group dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Doctor<span class="caret"></span></a>       
+                        <div class="dropdown-menu">
+                                <a class="nav-link text-nowrap" href="ViewDoctor">View Doctors</a>
+                                <a class="nav-link text-nowrap" href="AddDoctor">Add/Edit Doctor</a>
+                        </div>
+                </div><br>
+                <div class="btn-group dropdown" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Staff<span class="caret"></span></a>
+                    <div class="dropdown-menu" >
+                            <a  class="nav-link text-nowrap" href="ViewStaff">View Staffs</a>
+                            <a class="nav-link text-nowrap" href="AddStaff" (click)="ViewDoctor()">Add/Edit Staff</a>
+                    </div>
+                  </div>
+                      <div class="btn-group dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medicine<span class="caret"></span></a> 
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-nowrap" href="ViewMedicine">View Medicines</a>
+                                <a class="nav-link text-nowrap" href="AddMedicine">Add/Edit Medicine</a>
+                            </div>
+                          </div>
+          
+                <button (click)="Logout()" class="btn btn-danger" style="margin-left: 9%;" type="submit"><h5>Logout</h5></button>
+              </div>
+              <div id="main">
+              <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+        </div>
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button (click)="AddDoctor()" type="button" style="float:right" class="btn btn-outline-info">ADD DOCTOR</button>&nbsp;
+         <i class="fas fa-search" aria-hidden="true"></i>
+         <input [(ngModel)]="search" (ngModelChange)="searchDoctor(search)" name="sName" type="search" class="form-control mr-sm-2" type="search" placeholder="Search: Doctor Name/ Spec/Ph.No:" aria-label="Search">
+   
+         <button (click)="searchDoctor(search)"class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</nav>
+          <br> 
+             <div>
+                   <table class="table" border="1">
+                         <thead class="text-white">
+                            <tr>
+                                    <th>Doctor Id</th>
+                                    <th>Name</th>
+                                    <th>Specialization</th>
+                                    <th>Mobile</th>
+                                    <th>Action</th>
+                                </tr></thead>
+                                <tbody>
+                                <tr *ngFor="let doctor of doctors">
+                                    <td>{{doctor.dId}}</td>
+                                    <td>{{doctor.sName}}</td>
+                                    <td>{{doctor.dSpec}}</td>
+                                    <td>{{doctor.sPhNo}}</td>
+                                    <td><Button style="background-color: transparent;border: none;" (click)="editDoctor(doctor.sId)"><img src="assets/edit.png"/></Button>
+                                        <Button style="background-color: transparent;border: none;" (click)="disableDoc(doctor)"><img src="assets/delete.png"/></Button></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        
+                        </div>
+     
+        
+       
+    

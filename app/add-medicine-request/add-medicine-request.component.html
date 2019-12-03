@@ -1,0 +1,104 @@
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+    <a class="text-white"><h1>Doctor</h1></a>
+    <button (click)="Home()" class="btn btn-success" style="margin-left: 9%;" type="submit"><h5>Home</h5></button>
+
+  </div>
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+
+<div class="container-fluid">
+<div class="container">     
+<form role="form" #form="ngForm" autocomplete="off" >
+
+    <div>
+        <div class="input" style="font-size: 20px;">
+            <label>Patient id : {{patDet.regId}} </label><br>  
+            <label>Patient Name : {{patDet.pFName}}</label><br>
+            <label>Age : {{patDet.age}}</label><br>
+            <label>Blood Group : {{patDet.pBloodGrp}}</label>
+            <!--<button (click)="backHis()" type="submit"  class="btn btn-success" style="float:right;" >SAVE</button>-->
+        </div>
+    </div>
+    <hr>
+<br>    
+
+ 
+<div class="bg-light text-dark">
+      
+    <table class="table" border="1">
+        <thead class="text-white">
+                <tr>
+                        <th>Medicine</th>
+                        <th>Days</th>
+                        <th>Frequency Of Dosage</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                   
+                    <tr>
+                     
+                       
+                  
+                        <td>
+                          <input type="hidden" name="prescrib.prescId" class="form-control"> 
+                          <div class="dropdown">
+                            <select [(ngModel)]="prescrib.medName" name="medName" class="btn btn-outline-primary  my-2 my-sm-0 dropdown-toggle" class="form-control">
+                              <option  disabled selected>Select Medicine</option>
+                              <option  *ngFor="let medpres of medpress">{{medpres.medName}}</option>
+                            </select>
+                        
+                               </div>
+                            </td>
+                            <td><input type="text" class="form-control" name="medDays" [(ngModel)]="prescrib.medDays" /></td>
+                            <td>
+                                          <div class="dropdown">
+                                            <select [(ngModel)]="prescrib.medFreq" name="medFreq" class="btn btn-outline-primary  my-2 my-sm-0 dropdown-toggle" class="form-control">
+                                              <option  disabled selected>Select Dosage</option>
+                                              <option >1-0-0</option>
+                                              <option >1-1-0</option>
+                                              <option >1-0-1</option>
+                                              <option >1-1-1</option>
+                                              <option >0-1-1</option>
+                                              <option >0-0-1</option>
+                                              <option >0-1-0</option>
+                                            </select>
+                                          </div>
+                            </td>
+                            <td><button (click)="addPrescription()" style="border: none;background-color: transparent;"><img src="assets/add.png"/></button></td>
+                        </tr>
+            </table>
+</div>
+<br>
+<br>
+
+
+<br>
+<div class="bg-light text-dark">
+<div>
+    <table class="table" border="1">
+        <thead class="text-white">
+                    <tr>
+                        <th>Medicine</th>
+                        <th>Days</th>
+                        <th>Frequency Of Dosage</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tr *ngFor="let pData of precDets">
+                            <td>{{pData.medName}}</td>
+                            <td>{{pData.medDays}}</td>
+                            <td>{{pData.medFreq}}</td>
+                            <td><a (click)="deleteMed(pData.prescId)"><img src="assets/remove.png"/></a></td>
+                        </tr>
+            </table>
+</div>
+
+</div>
+
+</form>
+
+</div>
+</div>

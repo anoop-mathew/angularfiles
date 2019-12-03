@@ -1,0 +1,89 @@
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>Front Office</h1></a>
+        <a class="text-white" href="TodaysApp">Home</a>
+        <a class="text-white" href="AddPatient">New Patient</a>
+        <a class="text-white" href="ViewPatient">View All Patient</a>
+        <a class="text-white" href="TodaysApp">View Todays Appointment</a>
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 9%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+    
+
+<div class="container">
+       <form>
+        <div class="form-row" style="font-size: 18px;">
+        <div class="form-group col-md-6">
+            <label for="example-text-input" class="col-4 col-form-label">Reg Id: {{patDet.regId}}</label>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="example-text-input" class="col-4 col-form-label">Age: {{patDet.age}}</label>
+        </div>
+        </div>
+        <div class="form-row" style="font-size: 18px;">
+            <div class="form-group col-md-6">
+                <label for="example-text-input" class="col-4 col-form-label">Patient Name: {{patDet.pFName}}</label>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="example-text-input" class="col-4 col-form-label">Phone Number: {{patDet.pPhNo}}</label>
+            </div>
+        </div>
+            <hr>
+            <br>
+
+            <div class="col-10">
+                <select [(ngModel)]="sName" (change)="getDoctor($event)" style="width: 200px;" class="form-control text_length" [ngModelOptions]="{standalone: true}">
+                    <option [(ngModel)]="sName" disabled selected >Select Doctor</option>
+                    
+                    <ng-container >
+                        <option *ngFor="let avail of availDoc">{{avail.sName}}</option>
+                    </ng-container>
+                
+                             
+                </select>
+           
+            </div> 
+            <!--<div class="dropdown" style="width: 170px;">
+                  
+                   <select (change)="getDoctor($event.target)"   class="btn btn-outline-primary  my-2 my-sm-0 dropdown-toggle" class="form-control">
+                     <option  disabled selected>Select Doctor</option>
+                     <option *ngFor="let avail of availDoc" >{{avail.sName}}</option>
+                   </select>
+               
+               </div>-->
+              <br>
+                <br>
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">SPECIALIZATION</label>
+                <div class="col-5">
+                    <input class="form-control" [(ngModel)]="consultation.dSpec" name="dSpec"  type="text" id="" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">CONSULTATION FEE</label>
+                    <div class="col-5">
+                        <input class="form-control"  [(ngModel)]="consultation.consultFee" name="consultFee" type="number" id="" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">REGISTRATION FEE</label>
+                        <div class="col-5">
+                            <input class="form-control"  name="regFee"  [(ngModel)]="regFee" type="number" id="">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                            <label for="example-text-input" class="col-2 col-form-label">TOTAL</label>
+                            <div class="col-2">
+                                <input class="form-control"  name="admFee" [(ngModel)]="consultation.admFee" value="{{regFee + consultation.consultFee}}" type="number" id="" readonly>
+                            </div>
+                            <div class="col-5">
+                                <button type="button" style="float:right" (click)="addAppoinment()" class="btn btn-outline-warning">GENERATE BILL</button>
+                        </div>
+                        </div>
+                        
+                        </form>
+        </div>
+    

@@ -1,0 +1,91 @@
+
+
+<div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>Front Office</h1></a>
+        <a class="text-white" href="TodaysApp">Home</a>
+        <a class="text-white" href="AddPatient">New Patient</a>
+        <a class="text-white" href="ViewPatient">View All Patient</a>
+        <a class="text-white" href="TodaysApp">View Todays Appointment</a>
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 12%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+      
+     
+
+
+<div class="container">
+<section id="cover">
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <i class="fas fa-search" aria-hidden="true"></i>
+               <input  [(ngModel)] ="search" (ngModelChange)="searchPatient(search)" class="form-control mr-sm-2" type="search" placeholder="Search: Reg.Id/Ph.No" aria-label="Search">
+               <button (click)="searchPatient(search)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+       </nav>
+       <br>
+          <div>
+                <table class="table" border="1">
+                        <thead class="text-white">
+                <tr>
+                    <th>Registration Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <!--<th>Age</th>-->
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Reg Date:</th>
+                    <th>Action</th>
+                </tr></thead>
+                <tbody>
+                
+                <tr *ngIf = "patient.regId; else pat ">
+                    <td >{{patient.regId}}</td>
+                    <td >{{patient.pFName}}</td>
+                    <td >{{patient.pLName}}</td>
+                     <!--<td>{{patient.age}}</td>-->
+                    <td>{{patient.pAddr}}</td>
+                    <td>{{patient.pPhNo}}</td>
+                    <td>{{patient.pGender}}</td>
+                    <td>{{patient.pBloodGrp}}</td>
+                    <td>{{patient.pcreatedDate}}</td>
+                    <td><a (click)="editPatient(patient.regId)"><img src="assets/edit.png"/></a>&nbsp;
+                        <Button style="background-color: transparent;border: none;" (click)="consult(patient.regId)" ><img src="assets/consultation.png"/></Button> </td>
+                </tr>
+        
+            <ng-template #pat>
+            <tr *ngFor = "let patient of patients">
+                    <td >{{patient.regId}}</td>
+                    <td >{{patient.pFName}}</td>
+                    <td >{{patient.pLName}}</td>
+                    <!--<td>{{patient.age}}</td>-->
+                    <td>{{patient.pAddr}}</td>
+                    <td>{{patient.pPhNo}}</td>
+                    <td>{{patient.pGender}}</td>
+                    <td>{{patient.pBloodGrp}}</td>
+                    <td>{{patient.pcreatedDate}}</td>
+                    <td><a (click)="editPatient(patient.regId)"><img src="assets/edit.png"/></a>&nbsp;
+                        <Button style="background-color: transparent;border: none;" (click)="consult(patient.regId)" ><img src="assets/consultation.png"/></Button> </td>
+                </tr>
+            </ng-template>
+            </tbody>
+            </table>
+        
+        </div>
+        <nav>
+            <ul class="pagination pagination-sm" style="float:right">
+                <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+            </ul>
+        </nav>
+       
+</section>
+</div>

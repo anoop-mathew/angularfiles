@@ -1,0 +1,94 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+//http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg
+//https://cdn.vox-cdn.com/thumbor/tI95l-9kzNdnmNX5GFma75o6gDg=/0x0:6288x2848/1200x800/filters:focal(3497x542:4503x1548)/cdn.vox-cdn.com/uploads/chorus_image/image/64059067/shutterstock_1015882696.0.jpg
+//https://66.media.tumblr.com/88bcdcdacdfbbf8a9edd0e1723d6ce87/tumblr_mmtin8ws5F1rk0k2jo1_500.gif
+//https://miro.medium.com/max/5200/1*W8s0nYWadE70nBvcbWKWZA.gif
+//https://air-dr.com/wp-content/uploads/2018/02/movie-home-mobile.gif
+html,body{
+background-image: url('https://cdn.vox-cdn.com/thumbor/tI95l-9kzNdnmNX5GFma75o6gDg=/0x0:6288x2848/1200x800/filters:focal(3497x542:4503x1548)/cdn.vox-cdn.com/uploads/chorus_image/image/64059067/shutterstock_1015882696.0.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+padding-top:10%
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #01579b;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #01579b;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}

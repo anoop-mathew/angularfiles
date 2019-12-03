@@ -1,0 +1,60 @@
+<!--<div class="main">-->
+<div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>Front Office</h1></a>
+        <a class="text-white" href="TodaysApp">Home</a>
+        <a class="text-white" href="AddPatient">New Patient</a>
+        <a class="text-white" href="ViewPatient">View All Patient</a>
+        <a class="text-white" href="TodaysApp">View Todays Appointment</a>
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 12%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+      
+     
+
+
+<div class="container"> 
+             
+                      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                           <input class="form-control mr-sm-2" [(ngModel)]="search" (ngModelChange)="SearchPatient(search)"type="search" placeholder="Search: Patient Name/Dr.Name/Reg.Id" aria-label="Search">
+                           <button (click)="SearchPatient(search)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                   </nav>
+                 
+                      <div>
+                            <br>
+                            <table class="table" border="1">
+                                    <thead class="text-white">
+                            <tr>
+                                <th>Reg Id</th>
+                                <th>Patient First Name</th>
+                                <th>Doctor Name</th>
+                                <th>Action</th>
+                            </tr></thead>
+                            <tbody>
+                            <tr *ngFor = "let todayappoinment of todaysappoinment">
+                                <td>{{todayappoinment.regId}}</td>
+                                <td>{{todayappoinment.pFName}}</td>
+                                <td>{{todayappoinment.sName}}</td>
+                                <td><i (click)="ViewPatientByRegId(todayappoinment.regId)"><img src="assets/view.png"/></i></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    
+                    </div>
+                    <nav>
+                        <ul class="pagination pagination-sm" style="float:right">
+                            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                            <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                            <li class="page-item"><a href="#" class="page-link">2</a></li>
+                            <li class="page-item"><a href="#" class="page-link">3</a></li>
+                            <li class="page-item"><a href="#" class="page-link">4</a></li>
+                            <li class="page-item"><a href="#" class="page-link">5</a></li>
+                            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            <!--</div>-->
+        

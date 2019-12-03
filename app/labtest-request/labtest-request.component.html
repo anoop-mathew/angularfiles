@@ -1,0 +1,205 @@
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>Doctor</h1></a>
+      
+        <button (click)="Home()" class="btn btn-success" style="margin-left: 9%;" type="submit"><h5>Home</h5></button>
+      </div>
+<div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+
+
+<div class="container-fluid">
+    <div class="container">     
+    <form role="form" #form="ngForm" autocomplete="off" >
+    
+        <div>
+            <div class="input" style="font-size: 20px;">
+                <label>Patient id : {{patDet.regId}} </label><br>  
+                <label>Patient Name : {{patDet.pFName}}</label><br>
+            </div>
+        </div>
+        <hr>
+    <br>    
+    
+     
+    <div class="bg-light text-dark">
+          
+        <table class="table" border="1">
+            <thead class="text-white">
+                    <tr>
+                            <th>Lab Test</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>
+                              <input type="hidden" name="prescrib.assignLabId" class="form-control"> 
+                              <div class="dropdown">
+                                <select [(ngModel)]="prescrib.lName" name="lName" class="btn btn-outline-primary  my-2 my-sm-0 dropdown-toggle" class="form-control">
+                                  <option  disabled selected>Select Lab Test</option>
+                                  <option  *ngFor="let labpres of labpress">{{labpres.lName}}</option>
+                                </select>
+                            
+                                   </div>
+                                </td>
+                                <td><button (click)="addLabPrescription()" style="border: none;background-color: transparent;"><img src="assets/add.png"/></button></td>
+                            </tr>
+                </table>
+    </div>
+    <br>
+    <br>
+    
+    
+    <br>
+    <div class="bg-light text-dark">
+    <div>
+        <table class="table" border="1">
+            <thead class="text-white">
+                        <tr>
+                            <th>Lab Test</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tr *ngFor="let lData of labDets">
+                                <td>{{lData.lName}}</td>
+                                <td><a (click)="deleteLab(lData.assignLabId)"><img src="assets/remove.png"/></a></td>
+                            </tr>
+                </table>
+    </div>
+    
+    </div>
+    
+    </form>
+    
+    </div>
+    </div>
+<!--
+<div class="container-fluid">
+  <div class="container">     
+  <form role="form" #form="ngForm" autocomplete="off" >
+           <div>
+                <div class="input" style="font-size: 20px;">
+                    <label>Patient Id : {{patDet.regId}} </label><br>  
+                    <label>Patient Name : {{patDet.pFName}}</label><br>
+                </div>
+            </div>
+        <hr>
+<br>
+
+
+<div class="bg-light text-dark">
+    <table class="table" border="1">
+        <thead class="text-white">
+                <tr>
+                    <th>Lab Test</th>
+                    <th>Actions</th>
+                </tr>
+        </thead>   
+                <tr>
+                    <td>
+                        <input type="hidden" name=".labId" class="form-control"> 
+                      <div class="dropdown">
+                        <select [(ngModel)]="prescrib.medName" name="medName" class="btn btn-outline-primary  my-2 my-sm-0 dropdown-toggle" class="form-control">
+                            <option  disabled selected>Select Medicine</option>
+                            <option  *ngFor="let medpres of medpress">{{medpres.medName}}</option>
+                        </select>
+                      </div>
+                    </td>
+                  <td><button (click)="addPrescription()" style="border: none;background-color: transparent;"><img src="assets/add.png"/></button></td>
+                </tr>
+    </table>
+</div>
+<br>
+<br>
+
+
+<br>
+<div class="bg-light text-dark">
+<div>
+    <table class="table" border="1">
+        <thead class="text-white">
+                        <tr>
+                            <th>Medicine</th>
+                            <th>Actions</th>
+                        </tr>
+        </thead>
+                        <tr *ngFor="let pData of precDets">
+                              <td>{{pData.medName}}</td>
+                              <td><a (click)="deleteMed(pData.prescId)"><img src="assets/remove.png"/></a></td>
+                        </tr>
+    </table>
+</div>
+  
+    </form>
+  </div>     
+</div>
+
+-->
+
+
+<!--    
+       <div class="col-md-12">
+            <div class="card" style="margin:50px 0">
+                    
+                    <div class="card-header" style="font-size: 17px;" >TESTS AVAILABLE :</div>
+                
+                    <ul class="list-group list-group-flush" style="font-size: 18px;">
+                        <li class="list-group-item">
+                                   Sugar
+                                    <label class="switch " >
+              <input type="checkbox" class="primary" >
+              <span class="slider round"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                                   Thyroid 
+                                    <label class="switch ">
+              <input type="checkbox" class="primary">
+              <span class="slider round"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                                    RBC
+                                    <label class="switch ">
+              <input type="checkbox" class="primary">
+              <span class="slider round"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                                PBS
+                                   <label class="switch ">
+              <input type="checkbox" class="primary">
+              <span class="slider round"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                                  FBS
+                                   <label class="switch ">
+              <input type="checkbox" class="primary">
+              <span class="slider round"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Bootstrap Switch Danger
+                                  <label class="switch ">
+              <input type="checkbox" class="primary">
+              <span class="slider round"></span>
+            </label>
+                        </li>
+                    </ul>
+                </div> 
+        </div>
+      
+        <label for="example-text-input" class="col-1 col-form-label" style="font-size: 18px;">COMMENTS:</label>
+            <div class="col-15">
+                <textarea class="form-control" placeholder="Enter Your Comments Here" style=" height: 150px; "></textarea>
+                    </div>
+                <br>
+             
+                <button  type="button" class="btn btn-success" style="float:right;margin-right:0%;">SAVE</button>
+   
+                    
+</div>
+--> 
+

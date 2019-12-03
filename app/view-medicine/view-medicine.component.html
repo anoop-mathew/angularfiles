@@ -1,0 +1,84 @@
+
+<div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>Admin</h1></a>
+        <a class="text-white"href="Admin" >Home</a>
+        <div class="btn-group dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Doctor<span class="caret"></span></a>       
+                <div class="dropdown-menu">
+                        <a class="nav-link text-nowrap" href="ViewDoctor">View Doctors</a>
+                        <a class="nav-link text-nowrap" href="AddDoctor">Add/Edit Doctor</a>
+                </div>
+        </div><br>
+        <div class="btn-group dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Staff<span class="caret"></span></a>
+            <div class="dropdown-menu" >
+                    <a class="nav-link text-nowrap" href="ViewStaff">View Staffs</a>
+                    <a class="nav-link text-nowrap" href="AddStaff" (click)="ViewDoctor()">Add/Edit Staff</a>
+            </div>
+          </div>
+              <div class="btn-group dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medicine<span class="caret"></span></a> 
+                    <div class="dropdown-menu">
+                        <a class="nav-link text-nowrap" href="ViewMedicine">View Medicines</a>
+                        <a class="nav-link text-nowrap" href="AddMedicine">Add/Edit Medicine</a>
+                    </div>
+                  </div>
+  
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 9%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+
+
+     
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button (click)= "AddMedicine()" type="button" style="float:right" class="btn btn-outline-info">ADD MEDICINE</button>&nbsp;
+         <i class="fas fa-search" aria-hidden="true"></i>
+         <input [(ngModel)] ="search" (ngModelChange)="searchMedicine(search)" class="form-control mr-sm-2" type="search" placeholder="Search: Medicine Id/Medicine Name" aria-label="Search">
+         <button (click)="searchMedicine(search)"  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</nav>
+          <br> 
+                      <div>
+                        <table class="table" border="1">
+                            <thead class="text-white">
+                        <tr>
+                            <th>Medicine Id</th>
+                            <th>Medicine Name</th>
+                            <th>Company Name</th>
+                            <th>Cost</th>
+                            <th>Action</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr *ngFor="let m of medicines">
+                            <td>{{m.medId}}</td>
+                            <td>{{m.medName}}</td>
+                            <td>{{m.manufacturer}}</td>
+                            <td>{{m.medPrice}}</td>
+                            <td><a (click)="editMedicine(m.medId)"><img src="assets/edit.png"/></a>
+                                <a (click)="disableMedicine(m)"><img src="assets/delete.png"/></a></td>
+                        </tr>
+                            </tbody>
+                            </table>
+                        
+                        </div>
+                        <nav>
+                            <ul class="pagination pagination-sm" style="float:right">
+                                <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                            </ul>
+                        </nav>
+                       
+      
+        
+       
+</div>
+    
+    

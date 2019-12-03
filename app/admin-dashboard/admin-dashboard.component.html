@@ -1,0 +1,45 @@
+<div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+        <a class="text-white"><h1>Admin</h1></a>
+        <a class="text-white"href="Admin" >Home</a>
+        <div class="btn-group dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Doctor<span class="caret"></span></a>       
+                <div class="dropdown-menu">
+                        <a class="nav-link text-nowrap" href="ViewDoctor">View Doctors</a>
+                        <a class="nav-link text-nowrap" href="AddDoctor">Add/Edit Doctor</a>
+                </div>
+        </div><br>
+        <div class="btn-group dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Staff<span class="caret"></span></a>
+            <div class="dropdown-menu" >
+                    <a class="nav-link text-nowrap" href="ViewStaff">View Staffs</a>
+                    <a class="nav-link text-nowrap" href="AddStaff">Add/Edit Staff</a>
+            </div>
+          </div>
+              <div class="btn-group dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medicine<span class="caret"></span></a> 
+                    <div class="dropdown-menu">
+                        <a class="nav-link text-nowrap" href="ViewMedicine">View Medicines</a>
+                        <a class="nav-link text-nowrap" href="AddMedicine">Add/Edit Medicine</a>
+                    </div>
+                  </div>
+  
+        <button (click)="Logout()" class="btn btn-danger" style="margin-left: 9%;" type="submit"><h5>Logout</h5></button>
+      </div>
+      <div id="main">
+      <span style="font-size:30px;cursor:pointer" (click)= "openNav()" >&#9776; </span>
+</div>
+    
+
+<br><br><br>
+<div class="container">
+<button (click)="ViewStaff()"  type="button" class="btn btn-outline-primary btn-lg btn-block">Staff</button>
+<br><br><br>
+<button (click)="ViewDoctor()" type="button" class="btn btn-outline-primary btn-lg btn-block">Doctor</button>
+<br><br><br>
+<button (click)="ViewMedicine()" type="button" class="btn btn-outline-primary btn-lg btn-block">Medicine</button>
+</div>
+
+
+
+
