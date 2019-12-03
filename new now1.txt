@@ -1,0 +1,112 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style type="text/css">
+body {
+background-image:url(download.png);
+ height:100 vh;
+ }
+ 
+ .login-page {
+  width:360 px;
+  padding : 10% 0 0;
+  margin : auto;
+  }
+  
+ .form {
+  position:relative;
+  z-index:1;
+  background:#ffffff;
+  max-width : 360px;
+  margin : 0 auto 100px;
+  padding : 45px;
+  text-align : center;
+  }
+  
+  .form input{
+  font-family : "Roboto",sans-serif;
+  outline : 1;
+  background : #f2f2f2;
+  width : 100%;
+  border : 0;
+  margin : 0 0 15px;
+  padding : 15px;
+  box-sizing : border-box;
+  font-size : 14px;
+  }
+  
+  .form button {
+  font-family : "Roboto",sans-serif;
+  text-transform : uppercase;
+  outline : 0;
+  background : #4CAF50;
+  width : 100%;
+  border : 0;
+  padding : 15px;
+  color : #FFFFFF;
+  font-size : 14px;
+  cursor : pointer;
+  }
+  
+  .form.message a{
+   color:#4CAF50;
+   text-decoration:none;
+   }
+   
+   .form.button:hover,.form button:active {
+    background : #43A047;
+	}
+
+.form.message{
+ margin : 15px 0 0;
+ color:aliceblue;
+font-size:12px;
+}
+
+.form .register-form{
+display:none;
+} 
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>First Page</title>
+</head>
+<body>
+<div class="login-page">
+		<div class="form">
+			<form class="register-form" method="post" action="save">
+		        <input type="text" placeholder="Name" name="name" />
+		        <input type="text" placeholder="Age" name="age" />
+		        <input type="text" placeholder="Phone" name="phone" />
+				<input type="text" placeholder="username" name="username" /> <span id="nameloc"></span>
+				<input type="password" placeholder="password" name="password" />
+				<span id="passwordloc"></span> 
+					<select name="role">
+				<option >Guest</option><br/></select>
+				<button>Create</button>
+				<p class="message">
+					Already Registered?<a href="#">Login</a>
+				</p>
+			</form>
+			<form class="login-form" method="post" action="login">
+				<input type="hidden" name="id"/>
+				<input type="text" placeholder="username" name="username" /> <span id="nameloc"></span>
+				<input type="password" placeholder="password" name="password" /> 
+				<span id="passwordloc"></span>
+				<button>Login</button>
+				<p class="message">
+					Not Registered?<a href="#">Login</a>
+				</p>
+			</form>
+		</div>
+	</div>
+   <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+  <script>
+  $('.message a').click(function() {
+   $('form').animate({height : "toggle", opacity: "toggle"},"slow");
+   });
+   </script>
+</body>
+</html>
