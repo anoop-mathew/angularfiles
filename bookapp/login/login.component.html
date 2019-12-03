@@ -1,0 +1,20 @@
+<h3 class="text-center text-red pt-5">Login Form</h3>
+<form role="form" #form="ngForm" autocomplete="off"  (submit)="OnSubmit(form)">
+    <div class="input">
+        <label>UserName: </label>
+        <input name="username" class="form-control" placeholder="Enter name" #username="ngModel" [(ngModel)]="_BookService.formData.userName" required>
+        <div class="validation-error" *ngIf="username.invalid && username.touched" style="color: red">*Username is required</div>
+    </div>
+    <br>
+    <div class="input">
+            <label>Password: </label>
+            <input name="password" type="password" class="form-control" placeholder="Enter Password" #password="ngModel" [(ngModel)]="_BookService.formData.userPassword" required>
+            <div class="validation-error" *ngIf="password.invalid && password.touched" style="color: red">*Password is required</div>
+    </div>
+    <br>
+    <div class="input">
+            <!--input type="submit" value="Login"-->
+            <input type="submit" value="Login" [disabled]="form.invalid" class="btn btn-info btn-block">
+       
+    </div>
+</form>

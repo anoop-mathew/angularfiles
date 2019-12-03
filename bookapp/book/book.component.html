@@ -1,0 +1,48 @@
+<html>
+        <head>
+                <link
+                href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+                rel="stylesheet">
+        </head>
+    <body>
+<h1>Welcome to Library</h1>
+
+<div>
+    <form>
+        <input type = "hidden" name="book.id"/>
+        Enter Title: <input type = "text" [(ngModel)]="book.title" name="title" class="form-control"/><br/>
+        Enter Author: <input type = "text" [(ngModel)]="book.author" name="author" class="form-control"/><br/>
+        <button (click)=" addBook()" class="btn btn-info">Add Book</button>
+    </form>
+</div>
+<br>
+
+<div>
+    <table class="table table-striped" border="2" width="70%" cellpadding="2">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+        <tr *ngFor="let book of books">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td><button (click)="getBookById(book.id)" class="btn btn-success">Update</button> | <button (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </table>
+</div>
+    
+<br>
+<div class="container">    
+    <form  (click)="logout()">
+        <input type="submit" value="Logout" class="btn btn-info btn-block"> 
+    </form> 
+</div> 
+<br>
+
+</body>
+</html>
